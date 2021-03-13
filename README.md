@@ -4,12 +4,12 @@ The data consists of 25 features and 400 observations consisting of various feat
 
 Here are the final scores: 
 
-Logistic regression without standard scaler: F1-Score: 0.992
-Decision tree classifier without standard scaler: F1-Score: 0.959
+Logistic regression without standard scaler: F1-Score: 0.992  
+Decision tree classifier without standard scaler: F1-Score: 0.959  
 
-Logistic regression with standard scaler: F1-Score: 0.976
-Logistic regression with standard scaler and PCA: F1-Score: F1-Score: 0.625
-Decision tree classifier with standard scaler and PCA: F1-Score: 0.879
+Logistic regression with standard scaler: F1-Score: 0.976  
+Logistic regression with standard scaler and PCA: F1-Score: 0.625  
+Decision tree classifier with standard scaler and PCA: F1-Score: 0.879  
 
 Within the [notebook](https://github.com/Shuyib/chronic-kidney-disease-kaggle/blob/main/chronic-kidney-disease-eda-and-prediction.ipynb) we go over feature importance for each classifier and also interpret what the results mean to the patient and the progression of the disease. How they relate to diagnostic tests for kidney function expose about the patients' condition? 
 
