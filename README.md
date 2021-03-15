@@ -11,6 +11,6 @@ Logistic regression with standard scaler: F1-Score: 0.976
 Logistic regression with standard scaler and PCA: F1-Score: 0.625  
 Decision tree classifier with standard scaler and PCA: F1-Score: 0.879  
 
-Within the [notebook](https://github.com/Shuyib/chronic-kidney-disease-kaggle/blob/main/chronic-kidney-disease-eda-and-prediction.ipynb) we go over feature importance for each classifier and also interpret what the results mean to the patient and the progression of the disease. How they relate to diagnostic tests for kidney function expose about the patients' condition? Just for reading use [this](https://github.com/Shuyib/chronic-kidney-disease-kaggle/blob/main/chronic-kidney-disease-eda-and-prediction.html)
+Within the [notebook](https://github.com/Shuyib/chronic-kidney-disease-kaggle/blob/main/chronic-kidney-disease-eda-and-prediction.ipynb) we go over feature importance for each classifier and also interpret what the results mean to the patient and the progression of the disease. How they relate to diagnostic tests for kidney function expose about the patients' condition? Just for reading use [this](https://github.com/Shuyib/chronic-kidney-disease-kaggle/blob/main/chronic-kidney-disease-eda-and-prediction.html). You can also make my kaggle environment using the `pip install -r requirements.txt`. I encourage you to only use the packages imported. 
 
 Lastly they are tasks you can try out to further improve and refine the models further. Check them out maybe you'll learn something. Feel free to reach out to talk about the results further. 
