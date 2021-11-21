@@ -14,6 +14,12 @@ ENV PYTHONUNBUFFERED=TRUE
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+# create a virtual environment and activate it
+RUN python3 -m venv ml-env
+
+# activate virtual environment
+CMD source ml-env/bin/activate
+
 # Install the required libraries
 RUN pip --no-cache-dir install -r /app/requirements.txt
 
@@ -25,3 +31,4 @@ VOLUME /app
 
 # Run jupyter when container launches
 CMD ["jupyter", "notebook", "--ip='*'", "--port=9999", "--no-browser", "--allow-root"]
+
