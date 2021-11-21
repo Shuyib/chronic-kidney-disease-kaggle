@@ -24,4 +24,4 @@ EXPOSE 9999
 VOLUME /app
 
 # Run jupyter when container launches
-CMD ["jupyter", "notebook", "--ip='*'", "--port=8888", "--no-browser", "--allow-root"]
+CMD ["jupyter", "notebook", "--ip='*'", "--port=9999", "--no-browser", "--allow-root"]
