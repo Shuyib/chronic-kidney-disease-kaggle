@@ -18,7 +18,11 @@ Lastly they are tasks you can try out to further improve and refine the models f
 # How to run the docker image
 
 Build docker image  
-`docker build -t chronic-kidney-disease-kaggle .`
+```bash
+docker build -t chronic-kidney-disease-kaggle .
+```
 
 Run the Docker image  
-`docker run -it -p 9999:9999 chronic-kidney-disease:latest`
+```bash
+docker run -it -p 9999:9999 chronic-kidney-disease:latest
+```
