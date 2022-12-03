@@ -17,7 +17,7 @@ Lastly they are tasks you can try out to further improve and refine the models f
 
 Other things you can try:
 
-* Fix class imbalance with Synthetic Minority Oversampling Technique[SMOTE](https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/).   
+* Fix class imbalance with Synthetic Minority Oversampling Technique [SMOTE](https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/).   
 * Apply decision boundaries better [test.](https://hackernoon.com/how-to-plot-a-decision-boundary-for-machine-learning-algorithms-in-python-3o1n3w07)   
 * Check out the best practices applied in this [examples](https://pycaret.readthedocs.io/en/stable/tutorials.html)   
 
