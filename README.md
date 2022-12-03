@@ -15,6 +15,13 @@ Within the [notebook](https://github.com/Shuyib/chronic-kidney-disease-kaggle/bl
 
 Lastly they are tasks you can try out to further improve and refine the models further. Check them out maybe you'll learn something. Feel free to reach out to talk about the results further. 
 
+Other things you can try:
+
+* Fix class imbalance with Synthetic Minority Oversampling Technique[SMOTE](https://machinelearningmastery.com/smote-oversampling-for-imbalanced-classification/).   
+* Apply decision boundaries better [test.](https://hackernoon.com/how-to-plot-a-decision-boundary-for-machine-learning-algorithms-in-python-3o1n3w07)   
+* Check out the best practices applied in this [examples](https://pycaret.readthedocs.io/en/stable/tutorials.html)   
+
+
 # How to run the docker image
 
 Build docker image  
