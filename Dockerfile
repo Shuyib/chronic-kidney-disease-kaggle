@@ -21,7 +21,8 @@ RUN python3 -m venv ml-env
 CMD source ml-env/bin/activate
 
 # Install the required libraries
-RUN pip --no-cache-dir install -r /app/requirements.txt
+RUN pip --no-cache-dir install --upgrade pip &&\
+		pip --no-cache-dir install -r /app/requirements.txt
 
 # Make port 9999 available to the world outside this container
 EXPOSE 9999
@@ -30,5 +31,5 @@ EXPOSE 9999
 VOLUME /app
 
 # Run jupyter when container launches
-CMD ["jupyter", "notebook", "--ip='*'", "--port=9999", "--no-browser", "--allow-root"]
+CMD ["jupyter", "notebook", "--ip='0.0.0.0'", "--port=9999", "--no-browser", "--allow-root"]
 
