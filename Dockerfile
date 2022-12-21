@@ -18,7 +18,7 @@ COPY . /app
 RUN python3 -m venv ml-env
 
 # activate virtual environment
-CMD source ml-env/bin/activate
+CMD [ "source ml-env/bin/activate" ]
 
 # Install the required libraries
 RUN pip --no-cache-dir install --upgrade pip &&\
