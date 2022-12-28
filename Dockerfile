@@ -15,10 +15,9 @@ ENV PYTHONUNBUFFERED=TRUE
 COPY . /app
 
 # create a virtual environment and activate it
-RUN python3 -m venv ml-env
-
-# activate virtual environment
-CMD [ "source ml-env/bin/activate" ]
+# remove the two CMDs in the Dockerfile
+RUN python3 -m venv ml-env &&\
+            . ml-env/bin/activate
 
 # Install the required libraries
 RUN pip --no-cache-dir install --upgrade pip &&\
