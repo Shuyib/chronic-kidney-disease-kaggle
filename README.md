@@ -31,5 +31,5 @@ docker build -t chronic-kidney-disease-kaggle .
 
 Run the Docker image  
 ```bash
-docker run -it -p 9999:9999 chronic-kidney-disease:latest
+docker run -it -p 9999:9999 chronic-kidney-disease-kaggle:latest
 ```
