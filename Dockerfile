@@ -15,13 +15,13 @@ ENV PYTHONUNBUFFERED=TRUE
 COPY . /app
 
 # create a virtual environment and activate it
-# remove the two CMDs in the Dockerfile
+# combine run and source commands to avoid creating a new layer in the image
+# install the requirements in the virtual environment
 RUN python3 -m venv ml-env &&\
-            . ml-env/bin/activate
+            . ml-env/bin/activate &&\
+            pip --no-cache-dir install --upgrade pip &&\
+            pip --no-cache-dir install -r /app/requirements.txt
 
-# Install the required libraries
-RUN pip --no-cache-dir install --upgrade pip &&\
-		pip --no-cache-dir install -r /app/requirements.txt
 
 # Make port 9999 available to the world outside this container
 EXPOSE 9999
