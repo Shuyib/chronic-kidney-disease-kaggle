@@ -9,11 +9,11 @@ set -euo pipefail
 
 # Check if the kaggle.json file exists
 # needed for some datasets
-# if [ ! -f ~/.kaggle/kaggle.json ]; then
-#     echo "kaggle.json file not found."
-#     echo "Please upload the kaggle.json file to the ~/.kaggle/ directory."
-#     exit 1
-# fi
+if [ ! -f ~/.kaggle/kaggle.json ]; then
+    echo "kaggle.json file not found."
+    echo "Please upload the kaggle.json file to the ~/.kaggle/ directory."
+    exit 1
+fi
 
 # check if kaggle and unzip are installed
 for cmd in kaggle unzip; do
