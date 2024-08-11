@@ -27,10 +27,10 @@ Other things you can try:
 
 Build docker image  
 ```bash
-docker build -t chronic-kidney-disease-kaggle .
+docker build --platform linux/amd64 -t chronic-kidney-disease-kaggle .
 ```
 
 Run the Docker image  
 ```bash
-docker run -it -p 9999:9999 chronic-kidney-disease-kaggle:latest
+docker run -it --platform linux/amd64 -p 9999:9999 chronic-kidney-disease-kaggle:latest
 ```
