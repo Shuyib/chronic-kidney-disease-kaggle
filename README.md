@@ -32,5 +32,9 @@ docker build --platform linux/amd64 -t chronic-kidney-disease-kaggle .
 
 Run the Docker image  
 ```bash
-docker run -it --platform linux/amd64 -p 9999:9999 chronic-kidney-disease-kaggle:latest
+sudo docker run -d \
+		  --security-opt=no-new-privileges:true \
+          -p 9999:9999 \
+  		  -v $(pwd)/data:/app/data \
+  		  --name chronic-kidney-disease-kaggle chronic-kidney-disease-kaggle
 ```
