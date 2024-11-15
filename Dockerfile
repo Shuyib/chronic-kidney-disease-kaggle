@@ -1,42 +1,70 @@
-# Use latest Python runtime as a parent image
-FROM python:3.10-slim-buster
+# Stage 1: Build Stage
+FROM python:3.10.12-slim-buster AS builder
 
 # Meta-data
 LABEL maintainer="Shuyib" \
-      description="Docker Data Science workflow: Feature engineering and modelling for the chronic kidney disease dataset."
-      
-# Set the working directory to /app
-WORKDIR /app
+      description="Docker Data Science workflow: Feature engineering and modelling for the chronic kidney disease dataset." \
+      version="1.0" \
+      security="SECURITY_CONTACT=check my github profile"
 
-# ensures that the python output is sent to the terminal without buffering
-ENV PYTHONUNBUFFERED=TRUE
-
-# Copy the current directory contents into the container at /app
-COPY . /app
-
-# create a virtual environment and activate it
-# combine run and source commands to avoid creating a new layer in the image
-# Install dependencies and create a virtual environment
-RUN apt-get update && apt-get install -y \
+# Install build dependencies and create virtual environment in a single RUN to minimize layers
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
     graphviz \
     unzip \
-    && rm -rf /var/lib/apt/lists/* \
     && python3 -m venv /app/ml-env \
-    && . /app/ml-env/bin/activate \
-    && pip --no-cache-dir install --upgrade pip \
-    && pip --no-cache-dir install -r /app/requirements.txt
+    && /app/ml-env/bin/pip install --no-cache-dir --upgrade pip \
+    && rm -rf /var/lib/apt/lists/*
 
-# Make port 9999 available to the world outside this container
-EXPOSE 9999
+# Create non-root user
+RUN groupadd -r msee && useradd -r -g msee -m -s /bin/bash msee
+
+# Set the working directory
+WORKDIR /app
+
+# Copy and install requirements
+COPY requirements.txt /app/
+RUN /app/ml-env/bin/pip install --no-cache-dir -r requirements.txt
+
+# Stage 2: Final Stage
+FROM python:3.10.12-slim-buster 
+
+# Meta-data
+LABEL maintainer="Shuyib" \
+      description="Docker Data Science workflow: Feature engineering and modelling for the chronic kidney disease dataset." \
+      version="1.0" \
+      security="SECURITY_CONTACT=check my github profile"
+
+# Create non-root user
+RUN groupadd -r msee && useradd -r -g msee -m -s /bin/bash msee
+
+# Set the working directory
+WORKDIR /app
+
+# Copy virtual environment from builder
+COPY --from=builder /app/ml-env /app/ml-env
+
+# Copy application code with correct ownership
+COPY --chown=msee:msee . /app/
+
+# Set ownership
+RUN chown -R msee:msee /app
 
 # Create mountpoint
-VOLUME /app
+VOLUME ["/app/data"]
 
-# Run jupyter lab when the container launches
-# sh -c is used to run multiple commands in a single RUN instruction
-# --ip='0.0.0.0' allows external connections to the container
-# --port=9999 specifies the port to run the jupyter lab server
-# --no-browser disables the automatic opening of the browser
-# --allow-root allows the jupyter lab server to run as root
-CMD ["sh", "-c", ". ml-env/bin/activate && jupyter lab --ip='0.0.0.0' --port=9999 --no-browser --allow-root"]
+# Switch to non-root user
+USER msee
 
+# Environment variables
+ENV PYTHONUNBUFFERED=1
+
+# Expose necessary port
+EXPOSE 9999
+
+# Add healthcheck
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
+    CMD curl -f http://localhost:9999 || exit 1
+
+# Run Jupyter Lab
+CMD ["/app/ml-env/bin/jupyter", "lab", "--ip=0.0.0.0", "--port=9999", "--no-browser"]
