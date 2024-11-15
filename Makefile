@@ -94,7 +94,13 @@ docker_clean: Dockerfile
 docker_run: Dockerfile docker_build
 	# run docker
 	# docker run -e ENDPOINT_URL -e SECRET_KEY -e SPACES_ID -e SPACES_NAME plot-timeseries-app:v0
-	sudo docker run -it --platform linux/amd64 -p 9999:9999 $(DOCKER_CONTAINER_NAME)
+	# -d for detached mode (background), -p for port mapping, -v for volume mapping and --name for container name
+	# --security-opt=no-new-privileges:true for security 
+	sudo docker run -d \
+		  --security-opt=no-new-privileges:true \
+          -p 9999:9999 \
+  		  -v $(pwd)/data:/app/data \
+  		  --name $(DOCKER_CONTAINER_NAME) $(DOCKER_CONTAINER_NAME)
 
 docker_push: docker_build
   # push to registry
