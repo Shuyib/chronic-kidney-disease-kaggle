@@ -8,7 +8,7 @@ LABEL maintainer="Shuyib" \
       security="SECURITY_CONTACT=check my github profile"
 
 # Install build dependencies and create virtual environment in a single RUN to minimize layers
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
     build-essential \
     graphviz \
     unzip \
