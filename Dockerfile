@@ -5,7 +5,7 @@ FROM python:3.10.12-slim-buster AS builder
 LABEL maintainer="Shuyib" \
       description="Docker Data Science workflow: Feature engineering and modelling for the chronic kidney disease dataset." \
       version="1.0" \
-      security="SECURITY_CONTACT=check my github profile"
+      security_contact="check my github profile"
 
 # Install build dependencies and create virtual environment in a single RUN to minimize layers
 RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
