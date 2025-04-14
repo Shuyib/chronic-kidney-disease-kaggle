@@ -1,3 +1,5 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Shuyib/chronic-kidney-disease-kaggle/HEAD)
+
 # chronic-kidney-disease-kaggle
 
 The data consists of 25 features and 400 observations consisting of various features that could be used to predict chronic kidney disease. The original dataset is available [UCI Machine Learning repository](https://archive.ics.uci.edu/ml/datasets/ChronicKidneyDisease) and you can find the kaggle dataset [here](https://www.kaggle.com/mansoordaku/ckdisease). I use data cleaning and data transformation techniques in cluding data compression techniques for example PCA (Principal Component Analysis) to evaluate the performance of Logistic regression and decision tree classifiers. 
