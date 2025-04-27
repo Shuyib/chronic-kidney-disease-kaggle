@@ -1,3 +1,4 @@
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/git/https%3A%2F%2Fgithub.com%2FShuyib%2Fchronic-kidney-disease-kaggle/HEAD?urlpath=%2Fdoc%2Ftree%2Fchronic-kidney-disease-eda-and-prediction.ipynb)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Shuyib/chronic-kidney-disease-kaggle/blob/master/chronic-kidney-disease-eda-and-prediction.ipynb)
 
 # chronic-kidney-disease-kaggle
