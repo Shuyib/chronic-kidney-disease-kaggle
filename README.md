@@ -1,4 +1,4 @@
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/chronic-kidney-disease-eda-and-prediction.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Shuyib/chronic-kidney-disease-kaggle/blob/master/notebooks/chronic-kidney-disease-eda-and-prediction.ipynb)
 
 # chronic-kidney-disease-kaggle
 
