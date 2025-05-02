@@ -13,3 +13,4 @@ ydata-profiling==4.9.0
 pydotplus==2.0.2
 scikit-learn==1.5.1
 kaggle==1.6.17
+shap==0.47.2
