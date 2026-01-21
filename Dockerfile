@@ -29,12 +29,6 @@ RUN /app/ml-env/bin/pip install --no-cache-dir -r requirements.txt
 # Stage 2: Final Stage
 FROM python:3.10.12-slim-buster 
 
-# Meta-data
-LABEL maintainer="Shuyib" \
-      description="Docker Data Science workflow: Feature engineering and modelling for the chronic kidney disease dataset." \
-      version="1.0" \
-      security="SECURITY_CONTACT=check my github profile"
-
 # Create non-root user
 RUN groupadd -r msee && useradd -r -g msee -m -s /bin/bash msee
 
